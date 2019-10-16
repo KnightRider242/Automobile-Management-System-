@@ -1,22 +1,26 @@
 #include<iostream.h>
+#include<conio.h>
+#include<fstream.h>
+#include<string.h>
 #include<stdio.h>
 class automobile
 {
-int aid
+int aid;
 char aname[20];
 int bid;
 int yrm;
 char cname[20];
-char amoel[20];
+char amodel[20];
 char del[5];
 char atype[10];
+public:
 int getaid()
 {
 return(aid);
 }
-retname()
+char*retname()
 {
-return(name);
+return(aname);
 }
 void Read()
 {
@@ -40,15 +44,15 @@ cout<<endl;
 }
 void output()
 {
-cout<<"\n The id is  "<<aid;
-cout<<"\n The name  "<<aname;
+cout<<"\n The automobile id is  "<<aid;
+cout<<"\n The name of the automobile is "<<aname;
 cout<<"\n The Year of Manufacture is  "<<yrm;
 cout<<"\n The Customer Name is : "<<cname;
 cout<<"\n The model of automobile is  "<<amodel;
 cout<<"\n The type of automobile is "<<atype;
 cout<<"\n Delivery Status : "<<del;
 }
-}
+};
 void Read()
 {
 automibile a;
@@ -83,17 +87,17 @@ int x;
 char found ='n';
 if(!fo)
 {
-cout<<"!ERROR!!!!";
+cout<<"!!!!ERROR!!!!";
 getch();
 }
 cout<<"enter the id of car to be searched";
 cin>>x;
 while(!fo.eof())
 {
-fo.read(a,sizeof(a);
+fo.read((char*)&a,sizeof(a);
 if(a.getaid()==x)
 {
-cout<<"info;
+cout<<"information";
 s.out();
 found= 'y';
 break;
@@ -105,8 +109,8 @@ void modify()
 int r;
 fstream f1;
 automobile a ;
-f1.open("AUTO.dat",ios::in|ios::out);
-cout<<"Enter ID ";
+f1.open("AUTO.dat",ios::binary|ios::in|ios::out);
+cout<<"Enter the Automobile ID  that you wanna modify : ";
 cin>>r;
 while(!f1.eof())
 {
@@ -161,7 +165,7 @@ void main()
  cout<<"1. ADD ENTRIES\n";
  cout<<"2. DISPLAY ALL ENTRIES\n";
  cout<<"3. SEARCH THE ENTRIES\n";
- cout<<"4. MODIFY YOUR ENTRIES";
+ cout<<"4. MODIFY YOUR ENTRIES\n";
  cout<<"5. DELETE YOUR ENTRIES\n"<<endl;
  cout<<"ENTER YOUR CHOICE (1-5): ";
  cin>>ch;
@@ -181,9 +185,9 @@ void main()
 	default: cout<<"INVALID OPTION!!!!!!";
 	}
 
- cout<<endl<<"DO YOU WANT TO CONTINUE ";
+ cout<<endl<<"DO YOU WANT TO CONTINUE (y/n): ";
  cin>>c;
  }while(c=='Y'||c=='y');
- get();
+ getch();
 
 }
